@@ -137,3 +137,59 @@ void parkirKeluar(Kendaraan*& head, RiwayatKeluar*& riwayatKeluar) {
     cout << "\nTekan 'k' untuk kembali ke menu...";
     while (getch() != 'k');
 }
+
+void tampilParkiran(Kendaraan* head) {
+    clearScreen();
+    cout << "===== DAFTAR KENDARAAN PARKIR =====\n";
+    if (head == nullptr) {
+        cout << "Parkiran kosong.\n";
+    } else {
+        Kendaraan* temp = head;
+        while (temp != nullptr) {
+            cout << "- Plat : " << temp->plat
+                 << ", Jenis : " << temp->jenis
+                 << ", Jam Masuk : " << temp->jamMasuk << endl;
+            temp = temp->next;
+        }
+    }
+    cout << "\nTekan 'k' untuk kembali ke menu...";
+    while (getch() != 'k');
+}
+
+void tampilRiwayatMasuk(Kendaraan* riwayat) {
+    clearScreen();
+    cout << "===== RIWAYAT MASUK =====\n";
+    if (riwayat == nullptr) {
+        cout << "Tidak ada riwayat masuk.\n";
+    } else {
+        Kendaraan* temp = riwayat;
+        while (temp != nullptr) {
+            cout << "- Plat : " << temp->plat
+                 << ", Jenis : " << temp->jenis
+                 << ", Jam Masuk : " << temp->jamMasuk << endl;
+            temp = temp->next;
+        }
+    }
+    cout << "\nTekan 'k' untuk kembali ke menu...";
+    while (getch() != 'k');
+}
+
+void tampilRiwayatKeluar(RiwayatKeluar* riwayat) {
+    clearScreen();
+    cout << "===== RIWAYAT KELUAR =====\n";
+    if (riwayat == nullptr) {
+        cout << "Tidak ada riwayat keluar.\n";
+    } else {
+        RiwayatKeluar* temp = riwayat;
+        while (temp != nullptr) {
+            cout << "- Plat : " << temp->plat
+                 << ", Jenis : " << temp->jenis
+                 << ", Masuk : " << temp->jamMasuk
+                 << ", Keluar : " << temp->jamKeluar
+                 << ", Biaya : Rp" << temp->biaya << endl;
+            temp = temp->next;
+        }
+    }
+    cout << "\nTekan 'k' untuk kembali ke menu...";
+    while (getch() != 'k');
+}
