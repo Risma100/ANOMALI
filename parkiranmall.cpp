@@ -209,3 +209,63 @@ void hapusSemuaRiwayatKeluar(RiwayatKeluar*& head) {
         delete temp;
     }
 }
+
+int main() {
+    Kendaraan* head = nullptr;
+    Kendaraan* riwayatMasuk = nullptr;
+    RiwayatKeluar* riwayatKeluar = nullptr;
+    int pilihan;
+    char input;
+
+    do {
+        clearScreen();
+        cout << "=========================================\n";
+        cout << "       SISTEM PARKIRAN MALL JAWA\n";
+        cout << "=========================================\n";
+        cout << "1. Parkir Masuk\n";
+        cout << "2. Parkir Keluar\n";
+        cout << "3. Lihat Kendaraan Saat Ini\n";
+        cout << "4. Lihat Riwayat Masuk\n";
+        cout << "5. Lihat Riwayat Keluar\n";
+        cout << "0. Keluar\n";
+        cout << "Pilih Menu: ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+            case 1:
+                parkirMasuk(head, riwayatMasuk);
+                break;
+            case 2:
+                parkirKeluar(head, riwayatKeluar);
+                break;
+            case 3:
+                tampilParkiran(head);
+                break;
+            case 4:
+                tampilRiwayatMasuk(riwayatMasuk);
+                break;
+            case 5:
+                tampilRiwayatKeluar(riwayatKeluar);
+                break;
+            case 0:
+                clearScreen();
+                cout << "\nTerima kasih telah menggunakan sistem ini.\n";
+                cout << "================================";
+                cout << "\nNama Kelompok : Group ANOMALI";
+                cout << "\n================================";
+                cout << "\nNama Anggota : ";
+                cout << "\nFEBIA NURWULAN C030324067\n";
+                cout << "RISMA          C030324106\n";
+                break;
+            default:
+                cout << "\nPilihan tidak valid.\n";
+                cout << "Tekan 'k' untuk kembali ke menu...";
+                while ((input = getch()) != 'k');
+        }
+    } while (pilihan != 0);
+
+    hapusSemua(head);
+    hapusSemua(riwayatMasuk);
+    hapusSemuaRiwayatKeluar(riwayatKeluar);
+    return 0;
+}
