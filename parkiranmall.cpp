@@ -193,3 +193,19 @@ void tampilRiwayatKeluar(RiwayatKeluar* riwayat) {
     cout << "\nTekan 'k' untuk kembali ke menu...";
     while (getch() != 'k');
 }
+
+void hapusSemua(Kendaraan*& head) {
+    while (head != nullptr) {
+        Kendaraan* temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
+
+void hapusSemuaRiwayatKeluar(RiwayatKeluar*& head) {
+    while (head != nullptr) {
+        RiwayatKeluar* temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
